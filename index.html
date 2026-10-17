@@ -6,7 +6,7 @@
 <title>Undangan Pernikahan - Savira &amp; Endrass</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Pinyon+Script&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Pinyon+Script&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet" />
 <style>
 /* ============================================================
@@ -34,23 +34,57 @@
 @keyframes loaderSpin{to{transform:rotate(360deg)}}
 
 .loader-initials{
-  font-family:'Pinyon Script',cursive;
-  font-size:64px;line-height:1;
-  background:linear-gradient(135deg,#FFE088 20%,#E53935 100%);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  font-weight:700;
+  font-size:76px;
+  line-height:1;
+  letter-spacing:-.02em;
+  color:#FFE088;
+  background:linear-gradient(135deg,#FFF3B0 0%,#FFE088 35%,#E53935 100%);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 22px rgba(229,57,53,.55));
-  padding-bottom:8px;
+  -webkit-text-stroke:.6px rgba(0,0,0,.35);
+  filter:
+    drop-shadow(0 0 14px rgba(255,224,136,.5))
+    drop-shadow(0 0 28px rgba(229,57,53,.55))
+    drop-shadow(0 1px 1px rgba(0,0,0,.6));
+  padding:0 4px 10px;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
 }
 
-.loader-text{text-align:center;display:flex;flex-direction:column;gap:6px}
-.loader-title{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:24px;letter-spacing:-.01em;color:#fff}
-.loader-sub{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7A7A7A}
+.loader-text{text-align:center;display:flex;flex-direction:column;gap:8px}
+.loader-title{
+  font-family:var(--ff);
+  font-style:normal;
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:-.01em;
+  color:#fff;
+  line-height:1.25;
+  text-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+.loader-sub{
+  font-family:var(--ff);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#C9C9C9;
+}
 
-.loader-bar-wrap{width:220px;max-width:72vw;display:flex;flex-direction:column;gap:9px}
-.loader-bar-track{height:3px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
-#loader-bar{display:block;height:100%;width:0;background:linear-gradient(90deg,#E53935,#FFE088);border-radius:3px;transition:width .35s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 12px rgba(229,57,53,.65)}
-.loader-bar-meta{display:flex;justify-content:space-between;font-size:11px;font-weight:700;letter-spacing:.08em;color:#7A7A7A;font-variant-numeric:tabular-nums}
+.loader-bar-wrap{width:240px;max-width:72vw;display:flex;flex-direction:column;gap:10px}
+.loader-bar-track{height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden}
+#loader-bar{display:block;height:100%;width:0;background:linear-gradient(90deg,#E53935,#FFE088);border-radius:4px;transition:width .35s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 12px rgba(229,57,53,.65)}
+.loader-bar-meta{
+  display:flex;justify-content:space-between;
+  font-family:var(--ff);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.04em;
+  color:#C9C9C9;
+  font-variant-numeric:tabular-nums;
+}
 
 @media (prefers-reduced-motion:reduce){
   #loader{transition:opacity .3s ease}
@@ -125,7 +159,6 @@ html:not(.icons-ready) .ms{visibility:hidden}
 #bg0 .o1{--dz:26px;width:70%;aspect-ratio:1;left:-22%;top:6%;background:radial-gradient(circle,rgba(229,57,53,.5),transparent 68%);animation:orbA 18s ease-in-out infinite}
 #bg0 .o2{--dz:18px;width:56%;aspect-ratio:1;right:-18%;bottom:4%;background:radial-gradient(circle,rgba(212,175,55,.18),transparent 68%);animation:orbB 22s ease-in-out infinite}
 
-/* bg9 — Dalil Pernikahan (baru) */
 #bg9{background:radial-gradient(100% 70% at 50% 30%, rgba(229,57,53,.42), transparent 60%),radial-gradient(80% 50% at 50% 100%, rgba(139,30,45,.6), transparent 70%),linear-gradient(180deg,#1a0f12,#0a0809)}
 #bg9 .o1{--dz:26px;width:76%;aspect-ratio:1;left:-24%;top:8%;background:radial-gradient(circle,rgba(229,57,53,.45),transparent 68%);animation:orbA 19s ease-in-out infinite}
 #bg9 .o2{--dz:18px;width:60%;aspect-ratio:1;right:-20%;bottom:6%;background:radial-gradient(circle,rgba(212,175,55,.2),transparent 68%);animation:orbB 23s ease-in-out infinite}
@@ -253,95 +286,20 @@ header#topbar.scrolled .tb-title{opacity:1;transform:none}
 .btn-open:active{transform:scale(.97);box-shadow:0 6px 18px rgba(229,57,53,.55)}
 .btn-open .ms{font-size:20px;color:#fff}
 
-/* ============================================================
-   DALIL PERNIKAHAN — layer baru
-   ============================================================ */
-#dalil{
-  display:flex;align-items:center;justify-content:center;
-  padding:24px 20px 130px;
-}
-.dalil-wrap{
-  width:100%;max-width:420px;
-  padding:32px 24px 28px;
-  border-radius:20px;
-  background:rgba(28,28,28,.65);
-  border:1px solid rgba(229,57,53,.28);
-  backdrop-filter:blur(14px);
-  text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);
-  position:relative;
-  overflow:hidden;
-}
-.dalil-wrap::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(80% 50% at 50% 0%,rgba(229,57,53,.18),transparent 70%);
-  pointer-events:none;
-}
+/* DALIL */
+#dalil{display:flex;align-items:center;justify-content:center;padding:24px 20px 130px}
+.dalil-wrap{width:100%;max-width:420px;padding:32px 24px 28px;border-radius:20px;background:rgba(28,28,28,.65);border:1px solid rgba(229,57,53,.28);backdrop-filter:blur(14px);text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);position:relative;overflow:hidden}
+.dalil-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 50% at 50% 0%,rgba(229,57,53,.18),transparent 70%);pointer-events:none}
 .dalil-wrap > *{position:relative;z-index:1}
-.dalil-icon{
-  width:56px;height:56px;border-radius:50%;
-  margin:0 auto 16px;
-  display:grid;place-items:center;
-  background:rgba(229,57,53,.14);
-  border:1px solid rgba(229,57,53,.32);
-  box-shadow:0 0 30px rgba(229,57,53,.25);
-}
+.dalil-icon{width:56px;height:56px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:rgba(229,57,53,.14);border:1px solid rgba(229,57,53,.32);box-shadow:0 0 30px rgba(229,57,53,.25)}
 .dalil-icon .ms{font-size:28px;color:var(--red-hi);font-variation-settings:'FILL' 1}
 .dalil-wrap .eyebrow{margin-bottom:20px;text-align:center}
-.dalil-arabic{
-  font-family:var(--arabic);
-  font-size:27px;
-  line-height:2.05;
-  font-weight:400;
-  color:#fff;
-  direction:rtl;
-  text-align:center;
-  margin:4px 0 22px;
-  text-shadow:0 2px 24px rgba(229,57,53,.35),0 0 60px rgba(212,175,55,.15);
-  letter-spacing:0;
-  word-spacing:2px;
-}
-.dalil-divider{
-  height:1px;width:80px;margin:0 auto 22px;
-  background:linear-gradient(90deg,transparent,rgba(229,57,53,.65),transparent);
-  position:relative;
-}
-.dalil-divider::after{
-  content:"";position:absolute;left:50%;top:50%;
-  width:5px;height:5px;border-radius:50%;
-  background:var(--red-hi);
-  transform:translate(-50%,-50%) rotate(45deg);
-  box-shadow:0 0 10px rgba(229,57,53,.8);
-}
-.dalil-translation{
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:16.5px;
-  line-height:1.7;
-  color:var(--tx-sub);
-  margin-bottom:22px;
-  text-align:center;
-}
-.dalil-source{
-  display:inline-block;
-  font-size:11px;font-weight:700;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--red-hi);
-  padding:7px 18px;
-  border-radius:999px;
-  background:rgba(229,57,53,.12);
-  border:1px solid rgba(229,57,53,.3);
-}
-.dalil-ornament{
-  display:block;
-  text-align:center;
-  font-family:var(--script);
-  font-size:22px;
-  color:rgba(229,57,53,.55);
-  margin:18px 0 0;
-  line-height:1;
-}
+.dalil-arabic{font-family:var(--arabic);font-size:27px;line-height:2.05;font-weight:400;color:#fff;direction:rtl;text-align:center;margin:4px 0 22px;text-shadow:0 2px 24px rgba(229,57,53,.35),0 0 60px rgba(212,175,55,.15);letter-spacing:0;word-spacing:2px}
+.dalil-divider{height:1px;width:80px;margin:0 auto 22px;background:linear-gradient(90deg,transparent,rgba(229,57,53,.65),transparent);position:relative}
+.dalil-divider::after{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;border-radius:50%;background:var(--red-hi);transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 10px rgba(229,57,53,.8)}
+.dalil-translation{font-family:var(--serif);font-style:italic;font-size:16.5px;line-height:1.7;color:var(--tx-sub);margin-bottom:22px;text-align:center}
+.dalil-source{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red-hi);padding:7px 18px;border-radius:999px;background:rgba(229,57,53,.12);border:1px solid rgba(229,57,53,.3)}
+.dalil-ornament{display:block;text-align:center;font-family:var(--script);font-size:22px;color:rgba(229,57,53,.55);margin:18px 0 0;line-height:1}
 
 /* COUPLE */
 .couple-card{text-align:center;padding:4px 0 8px}
@@ -401,10 +359,9 @@ header#topbar.scrolled .tb-title{opacity:1;transform:none}
 .gi figcaption{position:absolute;z-index:2;left:12px;right:12px;bottom:10px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:14px;color:#fff;line-height:1.25;text-shadow:0 1px 4px rgba(0,0,0,.75)}
 .gi:nth-child(1){grid-column:1 / -1}
 .gi:nth-child(2){grid-column:1}
-.gi:nth-child(3){grid-column:2;margin-top:26px}
-.gi:nth-child(4){grid-column:1 / -1}
-.gi:nth-child(5){grid-column:1;margin-top:14px}
-.gi:nth-child(6){grid-column:2;margin-top:40px}
+.gi:nth-child(3){grid-column:2}
+.gi:nth-child(4){grid-column:1}
+.gi:nth-child(5){grid-column:2}
 
 /* MAP */
 .map{position:relative;height:220px;border-radius:12px;overflow:hidden;background:#1a1a1a;margin:18px 0 14px;border:1px solid var(--bd)}
@@ -452,20 +409,7 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
 .vinyl-wrap{padding:8px 0 4px}
 
 /* VINYL */
-.vinyl{
-  position:relative;
-  width:280px;max-width:82%;
-  aspect-ratio:1 / 1;
-  margin:0 auto;
-  border-radius:50%;
-  overflow:hidden;
-  isolation:isolate;
-  animation:spin 14s linear infinite;
-  animation-play-state:paused;
-  box-shadow:0 24px 56px rgba(0,0,0,.7),0 4px 14px rgba(0,0,0,.5);
-  background:linear-gradient(160deg,var(--red-dk),#1a0a0d);
-  will-change:transform;
-}
+.vinyl{position:relative;width:280px;max-width:82%;aspect-ratio:1 / 1;margin:0 auto;border-radius:50%;overflow:hidden;isolation:isolate;animation:spin 14s linear infinite;animation-play-state:paused;box-shadow:0 24px 56px rgba(0,0,0,.7),0 4px 14px rgba(0,0,0,.5);background:linear-gradient(160deg,var(--red-dk),#1a0a0d);will-change:transform}
 .vinyl.on{animation-play-state:running}
 @keyframes spin{to{transform:rotate(360deg)}}
 .vinyl img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:1}
@@ -545,17 +489,13 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
   .dalil-arabic{font-size:22px;line-height:1.95}
   .dalil-translation{font-size:15px}
   .dalil-wrap{padding:26px 18px 22px}
+  .loader-initials{font-size:64px}
 }
 
-/* ============================================================
-   RESPONSIVE — Desktop & Tablet (≥560px)
-   ============================================================ */
+/* RESPONSIVE */
 @media (min-width: 560px) {
   html, body { overflow: hidden; height: 100%; }
-  body {
-    display: flex; align-items: center; justify-content: center;
-    padding: 20px; background: #060405;
-  }
+  body { display: flex; align-items: center; justify-content: center; padding: 20px; background: #060405; }
   body::before {
     content: ""; position: fixed; inset: -20%; z-index: 0; pointer-events: none;
     background:
@@ -595,10 +535,7 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
 }
 @media (min-width: 900px) {
   body { padding: 28px; }
-  #app {
-    height: min(calc(100vh - 56px), 940px);
-    max-height: calc(100vh - 56px);
-  }
+  #app { height: min(calc(100vh - 56px), 940px); max-height: calc(100vh - 56px); }
 }
 </style>
 </head>
@@ -814,7 +751,7 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
         </div>
         <div class="event-row">
           <span class="event-label">Waktu</span>
-          <p class="event-value reveal">Pukul 13.00 — Selesai</p>
+          <p class="event-value reveal">Pukul 13.00 — 17.00 WIB</p>
         </div>
         <div class="event-row">
           <span class="event-label">Lokasi</span>
@@ -822,14 +759,7 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
           <span class="event-detail">Rt.12/Rw.06, Desa Banyusari, Kec. Tegalrejo, Kab. Magelang, Jawa Tengah</span>
         </div>
       </div>
-
-      <div class="event-card an fade-up" style="--i:2">
-        <div class="event-row" style="border-bottom:0;padding:0">
-          <span class="event-label">Tata Busana</span>
-          <p class="event-value reveal" style="font-size:15px;font-weight:500;color:var(--tx-sub);line-height:1.6">Batik Tradisional Nusantara atau Busana Formal bernuansa Royal Earthy &amp; Maroon.</p>
-        </div>
-      </div>
-
+       
       <button class="btn btn-red an fade-up" style="--i:3" id="cal-rec">
         <span class="ms">event</span>Simpan Jadwal Resepsi
       </button>
@@ -855,10 +785,6 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
         <figure class="gi an scale-in" style="--i:3" data-src="assets/img/pw3.png" data-cap="Isyarat Cinta Sejati Savira &amp; Endrass">
           <img src="assets/img/pw3.png" alt="Isyarat cinta"/>
           <figcaption>Satu Hati</figcaption>
-        </figure>
-        <figure class="gi an scale-in" style="--i:4" data-src="assets/img/pw4.png" data-cap="Nuansa Royal di Pelataran Sasana">
-          <img src="assets/img/pw4.png" alt="Nuansa royal"/>
-          <figcaption>Kehangatan</figcaption>
         </figure>
         <figure class="gi an scale-in" style="--i:5" data-src="assets/img/pw5.png" data-cap="Bunga Cinta di Senja Hari">
           <img src="assets/img/pw5.png" alt="Foto lima"/>
@@ -1199,15 +1125,14 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
 <!-- FIREBASE RSVP SYNC -->
 <script type="module">
   const firebaseConfig = {
-   apiKey: "AIzaSyAuKGVMOnewA1k7vWWWButeooA9XCY8j7I",
-  authDomain: "undangan-savira-endrass.firebaseapp.com",
-  databaseURL: "https://undangan-savira-endrass-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "undangan-savira-endrass",
-  storageBucket: "undangan-savira-endrass.firebasestorage.app",
-  messagingSenderId: "447571184669",
-  appId: "1:447571184669:web:f3f310e04594ef8f644af4",
-  measurementId: "G-G59Y9QDS7N"
-
+    apiKey: "AIzaSyAuKGVMOnewA1k7vWWWButeooA9XCY8j7I",
+    authDomain: "undangan-savira-endrass.firebaseapp.com",
+    databaseURL: "https://undangan-savira-endrass-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "undangan-savira-endrass",
+    storageBucket: "undangan-savira-endrass.firebasestorage.app",
+    messagingSenderId: "447571184669",
+    appId: "1:447571184669:web:f3f310e04594ef8f644af4",
+    measurementId: "G-G59Y9QDS7N"
   };
 
   const isConfigured = firebaseConfig.databaseURL &&
