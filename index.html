@@ -467,13 +467,11 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
 .np-mini-track i{display:block;height:100%;background:var(--red);border-radius:3px;transition:width .4s cubic-bezier(.2,.7,.2,1)}
 
 /* MODAL / TOAST */
-#modal{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(8px)}
-#modal.on{opacity:1;pointer-events:auto}
+#modal{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.94);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(8px)}#modal.on{opacity:1;pointer-events:auto}
 #modal .box{max-width:380px;width:100%;border-radius:14px;overflow:hidden;border:1px solid var(--bd-strong);background:var(--bg-card)}
 #modal img{width:100%;max-height:72vh;object-fit:contain;display:block;background:#0a0a0a}
 #modal p{padding:16px;text-align:center;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--tx);line-height:1.5}
-#close{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid var(--bd-strong);display:grid;place-items:center}
-#close .ms{font-size:22px;color:#fff}
+#close{position:absolute;z-index:2;top:max(18px,env(safe-area-inset-top));right:max(18px,env(safe-area-inset-right));width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid var(--bd-strong);display:grid;place-items:center;touch-action:manipulation}#close .ms{font-size:22px;color:#fff}
 #toast{position:fixed;bottom:96px;left:0;right:0;margin:auto;max-width:320px;z-index:80;background:#fff;color:#000;text-align:center;padding:12px 20px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.01em;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;transform:translateY(8px);box-shadow:0 10px 30px rgba(0,0,0,.5)}
 #toast.on{opacity:1;transform:translateY(0)}
 
@@ -1578,15 +1576,38 @@ textarea.f{resize:none;min-height:80px;line-height:1.55;font-family:var(--ff)}
     '20261108T060000Z/20261108T100000Z'
   );
 
-  const modal=$('#modal');
-  const openM=(s,c)=>{$('#m-img').src=s;$('#m-cap').textContent=c;modal.classList.add('on')};
+   const modal=$('#modal');
+  const mImg=$('#m-img');
+  const mCap=$('#m-cap');
+
+  const openM=(src,cap)=>{
+    if(!src) return;
+    mImg.src=src;
+    mCap.textContent=cap||'';
+    modal.classList.add('on');
+  };
+  const closeM=()=>{
+    modal.classList.remove('on');
+    setTimeout(()=>{ if(!modal.classList.contains('on')) mImg.src=''; },300);
+  };
+
   $$('.gi').forEach(i=>i.onclick=()=>openM(i.dataset.src,i.dataset.cap));
-  $('#qris').onclick=()=>openM(
-    getComputedStyle(document.documentElement).getPropertyValue('--map').trim().slice(5,-2),
-    'QRIS Resmi Hadiah Pernikahan — Savira Ferdiana Sari & Endrass Arya Junendar'
-  );
-  $('#close').onclick=()=>modal.classList.remove('on');
-  modal.onclick=e=>{if(e.target===modal)modal.classList.remove('on')};
+
+  // Guard: elemen #qris tidak ada di HTML, jadi jangan dipasang tanpa cek
+  const qrisBtn=$('#qris');
+  if(qrisBtn){
+    qrisBtn.onclick=()=>openM(
+      getComputedStyle(document.documentElement).getPropertyValue('--map').trim().slice(5,-2),
+      'QRIS Resmi Hadiah Pernikahan — Savira Ferdiana Sari & Endrass Arya Junendar'
+    );
+  }
+
+  $('#close').onclick=closeM;
+  modal.onclick=e=>{ if(e.target===modal) closeM(); };
+  mImg.onclick=closeM;
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && modal.classList.contains('on')) closeM();
+  });
 
   const submitBtn = $('#wishes-submit');
   $('#wishes-form').addEventListener('submit', async e => {
